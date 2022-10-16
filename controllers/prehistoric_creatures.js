@@ -36,7 +36,7 @@ router.get('/:id', (req, res) => {
 
   router.post('/', (req, res) => {
     // read creatures file
-    let creatures = fs.readFileSync('./prehistoric_creatures');
+    let creatures = fs.readFileSync('./prehistoric_creatures.json');
     let creatureData = JSON.parse(creatures);
 
     // add item to creatures array
