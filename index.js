@@ -10,13 +10,12 @@ app.use(ejsLayouts)
 app.use(express.urlencoded({extended: false}))
 
 app.use('/dinosaurs',require('./controllers/dinosaurs'))
-
-// app.use('/prehistoric_creatures',require('./controllers/prehistoric_creatures'))
-
+app.use('/prehistoric_creatures',require('./controllers/prehistoric_creatures'))
+app.use('/home',require('./controllers/home'))
 
 
 app.get('/',(req,res)=>{
-    res.redirect('/dinosaurs')
+    res.redirect('/home')
 })
 
 app.listen(PORT, ()=>{

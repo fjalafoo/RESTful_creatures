@@ -13,28 +13,30 @@ router.get('/',(req,res)=>{
 })
 
 //new
-app.get('/prehistoric_creatures/new', (req, res) => {
-    res.render('prehistoric_creatures/new');
-  });
+router.get('/new', (req, res) =>{
+  res.render('prehistoric_creatures/new')
+
+})
+
 
 //express show route for creatures (lists one creature)
-app.get('/prehistoric_creatures/:idx', (req, res) => {
+router.get('/:id', (req, res) => {
     // get creatures
     let creatures = fs.readFileSync('./prehistoric_creatures.json');
     let creatureData = JSON.parse(creatures);
   
     //get array index from url parameter
-    let creatureIndex = parseInt(req.params.idx);
+    let creatureIndex = parseInt(req.params.id);
   
     //render page with data of the specified animal
     res.render('prehistoric_creatures/show', {myCreature: creatureData[creatureIndex]});
-  });
+});
 
 
 
-  app.post('/prehistoric_creatures', (req, res) => {
+  router.post('/', (req, res) => {
     // read creatures file
-    let creatures = fs.readFileSync('./prehistoric_creatures.json');
+    let creatures = fs.readFileSync('./prehistoric_creatures');
     let creatureData = JSON.parse(creatures);
 
     // add item to creatures array

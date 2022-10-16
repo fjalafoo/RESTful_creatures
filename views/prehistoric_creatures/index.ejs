@@ -1,7 +1,9 @@
 <ul>
-    <% myCreatures.forEach(creature => { %>
-      <a href="/prehistoric_creatures/ <%= idx %>">
-        <li><%= creature.img_url %> is a <%= creature.type %></li>
+  <% myCreature.forEach((creature, id) => { %>
+      <a href="/prehistoric_creatures/<%= id %>">  
+          
+          <li><%= creature.type %></li>
+      
       </a>
-    <% }); %>
-  </ul>
+  <% }); %>
+</ul>

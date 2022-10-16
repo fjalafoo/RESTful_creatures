@@ -1,1 +1,9 @@
-<%= myCreature.img_url %> is a <%= myCreature.type %>.
+<style>
+    img{
+        height: 400px;
+    }
+</style>
+
+<h1><%= myCreature.type %></h1>
+
+<img src="<%= myCreature.img_url %>">
