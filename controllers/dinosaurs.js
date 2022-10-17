@@ -6,9 +6,23 @@ const fs = require('fs')
 
 //list all dinosaurs
 router.get('/',(req,res)=>{
+     //pull in JSON data
     let dinosaurs = fs.readFileSync('./dinosaurs.json')
+     //turns the JSON data into a JS obj
     let dinoData = JSON.parse(dinosaurs);
+
+    let nameFilter= req.query.nameFilter
+    //if the user searched for something
+
+    if(nameFilter){
+        dinoData = dinoData.filter(dino=>{
+            return dino.name.toLowerCase() === nameFilter.toLowerCase()
+        })
+    }
+
     res.render('dinosaurs/index', {myDinos: dinoData})
+
+    
     
 })
 
@@ -32,7 +46,9 @@ router.post('/',(req,res)=>{
     // console.log('This is the Request Body: ', req.body)
    
      // read dinosaurs file
+    
      let dinosaurs = fs.readFileSync('./dinosaurs.json');
+    
     let dinoData = JSON.parse(dinosaurs);
 
     // add item to dinosaurs array

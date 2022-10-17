@@ -1,4 +1,10 @@
 <h2>Dinosaurs</h2>
+
+<form action="/dinosaurs" method="GET">
+    <label for="nameFilter">Filter by name: </label>
+    <input type="text" name="nameFilter" id="nameFilter">
+    <button type="submit">Filter</button>
+</form>
 <ul>
     <% myDinos.forEach((dino, idx) =>{ %>
     <a href="/dinosaurs/ <%= idx %>">
