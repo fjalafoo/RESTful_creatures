@@ -1,11 +1,15 @@
 const express = require('express')
 const ejsLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override');
 const app = express()
 
 const PORT = 3500
 
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
+
+app.use(methodOverride('_method'));
+
 //body-parser middleware
 app.use(express.urlencoded({extended: false}))
 
